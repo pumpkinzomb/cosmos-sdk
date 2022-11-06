@@ -114,7 +114,10 @@ $ %s query staking validators
 			if err != nil {
 				return err
 			}
-
+			fmt.Println("///////// STAKING VALIDATORS PARAMS /////////")
+			fmt.Println("pageReq: ", pageReq)
+			// fmt.Sprintf(`pageReq: %s `, pageReq)
+			fmt.Println("///////// STAKING VALIDATORS PARAMS /////////")
 			result, err := queryClient.Validators(context.Background(), &types.QueryValidatorsRequest{
 				// Leaving status empty on purpose to query all validators.
 				Pagination: pageReq,

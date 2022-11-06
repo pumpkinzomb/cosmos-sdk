@@ -44,7 +44,9 @@ func BlockCommand() *cobra.Command {
 			if err != nil {
 				return err
 			}
-
+			fmt.Println("///////// BLOCK PARAMS /////////")
+			fmt.Println("Get Block : ", height)
+			fmt.Println("///////// BLOCK PARAMS /////////")
 			fmt.Println(string(output))
 			return nil
 		},
@@ -116,7 +118,6 @@ func BlockRequestHandlerFn(clientCtx client.Context) http.HandlerFunc {
 		if rest.CheckInternalServerError(w, err) {
 			return
 		}
-
 		rest.PostProcessResponseBare(w, clientCtx, output)
 	}
 }

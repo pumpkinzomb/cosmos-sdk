@@ -1,8 +1,6 @@
 package tmservice
-
 import (
 	"context"
-
 	gogogrpc "github.com/gogo/protobuf/grpc"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc/codes"
@@ -135,6 +133,7 @@ func (m *GetLatestValidatorSetResponse) UnpackInterfaces(unpacker codectypes.Any
 // GetValidatorSetByHeight implements ServiceServer.GetValidatorSetByHeight
 func (s queryServer) GetValidatorSetByHeight(ctx context.Context, req *GetValidatorSetByHeightRequest) (*GetValidatorSetByHeightResponse, error) {
 	page, limit, err := qtypes.ParsePagination(req.Pagination)
+
 	if err != nil {
 		return nil, err
 	}

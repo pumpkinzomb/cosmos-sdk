@@ -49,12 +49,14 @@ func ValidatorCommand() *cobra.Command {
 
 			page, _ := cmd.Flags().GetInt(flags.FlagPage)
 			limit, _ := cmd.Flags().GetInt(flags.FlagLimit)
-
+			fmt.Println("///////// VALIDATORS PARAMS /////////")
+			fmt.Println("Get Validators by Height: ", height)
+			fmt.Println("Page: ", page, "Limit", limit)
+			fmt.Println("///////// VALIDATORS PARAMS /////////")
 			result, err := GetValidators(clientCtx, height, &page, &limit)
 			if err != nil {
 				return err
 			}
-
 			return clientCtx.PrintObjectLegacy(result)
 		},
 	}
